@@ -6,7 +6,7 @@ import Navbar from './components/pages/Shared/Navbar';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home />}></Route>

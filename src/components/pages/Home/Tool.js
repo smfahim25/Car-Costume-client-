@@ -5,7 +5,7 @@ const Tool = (props) => {
     // console.log(props.tool);
     const { img, name, description, price, quantity } = props.tool;
     return (
-        <div class="card w-96 bg-base-100 shadow-lg">
+        <div class="card w-96 bg-base-100 drop-shadow-lg">
             <figure><img src={img} alt="Shoes" /></figure>
             <div class="card-body">
                 <h2 class="card-title">{name}</h2>
