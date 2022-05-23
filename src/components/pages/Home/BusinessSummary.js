@@ -2,7 +2,7 @@ import React from 'react';
 
 const BusinessSummary = () => {
     return (
-        <div className='mb-16'>
+        <div className='mb-16 App'>
             <h1 className='text-center text-4xl font-bold mt-10 mb-5 underline'>Business Summary</h1>
             <h3 className='text-5xl mb-10 mt-10 leading-relaxed'>Millions of people believes us. We try to satisfy our Customers. We always try to respectful behaviors of our customers.</h3>
             <div class="stats">

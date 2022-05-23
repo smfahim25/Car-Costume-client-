@@ -5,7 +5,7 @@ const Contact = () => {
         <div style={{
             background: `url(${'https://cdn.shopify.com/s/files/1/0266/4166/2049/files/1_e9c8f067-381c-4d1e-9a61-feef1bf277c8.png?v=1612511663'})`
         }}>
-            <div className=' px-10 py-14 '>
+            <div className=' px-10 py-14 hero-overlay bg-opacity-60'>
                 <div className='text-center pb-14 text-white'>
                     <p className='text-4xl leading-3 text-center pb-14 text-white'>
                         Contact Us
