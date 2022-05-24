@@ -24,11 +24,12 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    // useEffect(() => {
-    //     if (user || googleUser) {
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [token, from, navigate])
+    useEffect(() => {
+        if (user || googleUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user, googleUser, from, navigate])
+
     if (user || googleUser) {
         navigate(from, { replace: true });
     }

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 // import useToken from '../../hooks/useToken';
 
@@ -21,25 +21,32 @@ const SignUp = () => {
     // const [token] = useToken(user || googleUser);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
+    let signUpError;
 
-    let signInError;
+    useEffect(() => {
+        if (user || googleUser) {
+            navigate(from, { replace: true });
+        }
+    }, [user, googleUser, from, navigate])
 
     if (loading || googleLoading) {
         return <Loading></Loading>
     }
 
     if (error || googleError) {
-        signInError = <p className='text-red-500'><small>{error?.message || googleError?.message}</small></p>
+        signUpError = <p className='text-red-500'><small>{error?.message || googleError?.message}</small></p>
     }
 
     if (user || googleUser) {
-        navigate('/purchase');
+        navigate(from, { replace: true });
     }
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
         // await updateProfile({ displayName: data.name });
-        console.log('update done');
+        // console.log('update done');
     }
     return (
         <div className='flex h-screen justify-center items-center'>
@@ -117,7 +124,7 @@ const SignUp = () => {
                             </label>
                         </div>
 
-                        {signInError}
+                        {signUpError}
                         <input className='btn w-full max-w-xs text-white hover:bg-primary' type="submit" value="Sign Up" />
                     </form>
                     <p><small>Already have an account? <Link className='text-primary' to="/login">Please login</Link></small></p>
