@@ -1,5 +1,4 @@
 .Tpp {
-    /* display: flex; */
     /* justify-content: center; */
     justify-content: space-around;
     font-family: sans-serif;
@@ -11,7 +10,7 @@
     font-size: 30px;
 }
 
-@media screen and (max-width:664px) {
+@media screen and (max-width:788px) {
     .margin {
         margin-left: 150px;
     }
