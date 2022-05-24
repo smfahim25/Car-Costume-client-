@@ -1,0 +1,18 @@
+.Tpp {
+    /* display: flex; */
+    /* justify-content: center; */
+    justify-content: space-around;
+    font-family: sans-serif;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.time {
+    font-size: 30px;
+}
+
+@media screen and (max-width:664px) {
+    .margin {
+        margin-left: 150px;
+    }
+}
