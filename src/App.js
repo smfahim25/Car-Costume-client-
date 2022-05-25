@@ -5,6 +5,7 @@ import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import RequireAuth from './components/pages/Login/RequireAuth';
 import SignUp from './components/pages/Login/SignUp';
+import NotFound from './components/pages/NotFound/NotFound';
 import Purchase from './components/pages/Purchase/Purchase';
 import Reviews from './components/pages/Reviews/Reviews';
 import Navbar from './components/pages/Shared/Navbar';
@@ -22,6 +23,7 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='login' element={<Login />}></Route>
         <Route path='signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/*' element={<NotFound />}></Route>
       </Routes>
     </div>
   );
