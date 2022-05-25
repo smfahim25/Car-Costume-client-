@@ -12,12 +12,12 @@ const Review = (props) => {
             <div className="card-body" >
                 <h2 className="card-title" >
                     {name}
-                    < div className="badge badge-secondary" > NEW</div >
+                    < div className="badge badge-secondary" > Review</div >
                 </h2 >
                 <p>{description.slice(0, 200)}</p>
                 <div className="card-actions justify-end" >
-                    <div className="badge badge-outline" > Tool</div >
-                    <div className="badge badge-outline" > Manufacturer</div >
+                    <div className="badge badge-outline" > Cars</div >
+                    <div className="badge badge-outline" > Cars parts</div >
                 </div >
             </div >
         </div >
