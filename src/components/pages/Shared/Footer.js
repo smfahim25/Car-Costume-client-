@@ -8,8 +8,8 @@ const Footer = () => {
                 <div>
                     <span className="footer-title">Services</span>
                     <Link to='/' className="link link-hover">Branding</Link>
-                    <Link to='/' className="link link-hover" > Design</Link >
-                    <Link to='/' className="link link-hover" > Marketing</Link >
+                    <Link to='/' className="link link-hover" > Manufacture</Link >
+                    <Link to='/' className="link link-hover" > Job placement</Link >
                     <Link to='/' className="link link-hover" > Advertisement</Link >
                 </div >
                 <div>
@@ -48,7 +48,7 @@ const Footer = () => {
             </div >
             <footer className=" footer-center p-4 bg-base-200" >
                 <div>
-                    <p>Copyright © 2022 - All right reserved by Tools Manufacturer Company</p>
+                    <p>Copyright © 2022 - All right reserved by Cars Costume Company</p>
                 </div>
             </footer >
         </footer >
