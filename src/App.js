@@ -3,13 +3,19 @@ import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import AddProduct from './components/pages/Dashboard/AddProduct';
 import AddReview from './components/pages/Dashboard/AddReview';
 import Dashboard from './components/pages/Dashboard/Dashboard';
+import ManageAllProducts from './components/pages/Dashboard/ManageAllProducts';
+import ManageProduct from './components/pages/Dashboard/ManageProduct';
 import MyOrders from './components/pages/Dashboard/MyOrders';
 import MyProfile from './components/pages/Dashboard/MyProfile';
+import Payment from './components/pages/Dashboard/Payment';
+import Users from './components/pages/Dashboard/Users';
 import Contact from './components/pages/Home/Contact';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
+import RequireAdmin from './components/pages/Login/RequireAdmin';
 import RequireAuth from './components/pages/Login/RequireAuth';
 import SignUp from './components/pages/Login/SignUp';
 import NotFound from './components/pages/NotFound/NotFound';
@@ -33,6 +39,11 @@ function App() {
           <Route path="addreview" element={<AddReview />}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
           <Route path="myorders" element={<MyOrders />}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
+          <Route path='users' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
+          <Route path='manageallproducts' element={<RequireAdmin><ManageAllProducts></ManageAllProducts></RequireAdmin>}></Route>
+          <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+          <Route path='manageproduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
         </Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login />}></Route>
