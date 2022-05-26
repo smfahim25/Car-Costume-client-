@@ -19,6 +19,7 @@ import RequireAdmin from './components/pages/Login/RequireAdmin';
 import RequireAuth from './components/pages/Login/RequireAuth';
 import SignUp from './components/pages/Login/SignUp';
 import NotFound from './components/pages/NotFound/NotFound';
+import Portfolio from './components/pages/Portfolio/Portfolio';
 import Purchase from './components/pages/Purchase/Purchase';
 import Reviews from './components/pages/Reviews/Reviews';
 import Navbar from './components/pages/Shared/Navbar';
@@ -30,6 +31,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/home' element={<Home />}></Route>
+        <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/review' element={<Reviews></Reviews>}></Route>
         <Route path='/purchase/:purchaseID' element={<RequireAuth>
           <Purchase></Purchase>
