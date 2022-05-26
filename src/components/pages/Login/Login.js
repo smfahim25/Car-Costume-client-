@@ -30,9 +30,9 @@ const Login = () => {
         }
     }, [user, googleUser, from, navigate])
 
-    if (user || googleUser) {
-        navigate(from, { replace: true });
-    }
+    // if (user || googleUser) {
+    //     navigate(from, { replace: true });
+    // }
     if (loading || googleLoading) {
         return <Loading></Loading>
     }

@@ -1,6 +1,13 @@
 
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import AddReview from './components/pages/Dashboard/AddReview';
+import Dashboard from './components/pages/Dashboard/Dashboard';
+import MyOrders from './components/pages/Dashboard/MyOrders';
+import MyProfile from './components/pages/Dashboard/MyProfile';
+import Contact from './components/pages/Home/Contact';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import RequireAuth from './components/pages/Login/RequireAuth';
@@ -22,10 +29,17 @@ function App() {
           <Purchase></Purchase>
         </RequireAuth>}></Route>
         <Route path='/purchase' element={<Purchase></Purchase>}></Route>
+        <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
+          <Route path="addreview" element={<AddReview />}></Route>
+          <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
+          <Route path="myorders" element={<MyOrders />}></Route>
+        </Route>
+        <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/*' element={<NotFound />}></Route>
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

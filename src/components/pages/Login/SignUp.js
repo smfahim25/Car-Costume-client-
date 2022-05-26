@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
@@ -16,7 +16,8 @@ const SignUp = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    // const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [displayName, setDisplayName] = useState('');
 
     // const [token] = useToken(user || googleUser);
 
@@ -45,8 +46,9 @@ const SignUp = () => {
 
     const onSubmit = async data => {
         await createUserWithEmailAndPassword(data.email, data.password);
-        // await updateProfile({ displayName: data.name });
-        // console.log('update done');
+        await updateProfile({ displayName: data.name });
+        console.log('update done');
+        window.location.reload();
     }
     return (
         <div className='flex h-screen justify-center items-center'>
@@ -61,6 +63,7 @@ const SignUp = () => {
                             </label>
                             <input
                                 type="text"
+                                onChange={(e) => setDisplayName(e.target.value)}
                                 placeholder="Your Name"
                                 className="input input-bordered w-full max-w-xs"
                                 {...register("name", {

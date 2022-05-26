@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Review = (props) => {
-    const { img, name, description } = props.review;
+    const { img, name, description, rating } = props.review;
     return (
         <div className="card w-96 bg-base-100 drop-shadow-lg">
             < div className="avatar" >
@@ -14,6 +14,7 @@ const Review = (props) => {
                     {name}
                     < div className="badge badge-secondary" > Review</div >
                 </h2 >
+                <h3><span className='font-bold'> Rating:</span>  {rating}</h3>
                 <p>{description.slice(0, 200)}</p>
                 <div className="card-actions justify-end" >
                     <div className="badge badge-outline" > Cars</div >

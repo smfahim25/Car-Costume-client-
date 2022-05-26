@@ -13,7 +13,7 @@ const HomeReview = () => {
             <h1 className='text-center text-4xl font-bold mt-10 mb-10 underline'>Reviews</h1>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-12'>
                 {
-                    reviews.slice(0, 6).map(review => <Review key={review._id} review={review}></Review>)
+                    reviews.map(review => <Review key={review._id} review={review}></Review>)
                 }
             </div>
         </div>
