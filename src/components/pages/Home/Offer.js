@@ -10,7 +10,7 @@ const Offer = () => {
                     <img src="https://cdn.shopify.com/s/files/1/0266/4166/2049/products/14_f3517be8-6724-43e2-8805-bf4c0474a46e.png?v=1571309660" className="max-w-sm rounded-lg shadow-2xl" />
                     <div>
                         <h1 className="text-5xl font-bold">Our best deal comming soon</h1>
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="py-6">Our offer coming wait for it. It will be best offer for our customers. We always try to satisfied our customers. On that day you will gate the best product and high discount. This deal is best for wholesealer.</p>
                         <h2 className='text-2xl font-bold text-center'>Remaining Time</h2>
                         <div className="margin">
                             <Count></Count>

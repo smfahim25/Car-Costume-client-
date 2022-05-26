@@ -16,7 +16,7 @@ const MyProfile = () => {
             photo: e.target.photo.value,
             linkedin: e.target.linkedin.value,
         }
-        fetch(`https://car-parts-manufacturer.herokuapp.com/myprofile/${user?.email}`, {
+        fetch(`http://localhost:5000//myprofile/${user?.email}`, {
 
             method: 'PUT',
             headers: {

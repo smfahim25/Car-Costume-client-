@@ -9,7 +9,7 @@ const Banner = () => {
             <div className="hero-content text-center text-neutral-content" >
                 <div className="max-w-md" >
                     <h1 className="mb-5 text-5xl font-bold" > Cars Costume</h1 >
-                    <p className="mb-5" > Provident cupiditate voluptatem et in.Quaerat fugiat ut assumenda excepturi exercitationem quasi.In deleniti eaque aut repudiandae et a id nisi.</p >
+                    <p className="mb-5" > Here you will get best product and lowest rate. You can trust us.</p >
                     <button className="btn btn-primary" > Get Started</button >
                 </div >
             </div >

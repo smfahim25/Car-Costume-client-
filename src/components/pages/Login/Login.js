@@ -19,7 +19,7 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const [token] = useToken(user || googleUser);
+    // const [token] = useToken(user || googleUser);
 
     let signInError;
     const navigate = useNavigate();
@@ -27,10 +27,10 @@ const Login = () => {
     let from = location.state?.from?.pathname || "/";
 
     useEffect(() => {
-        if (token) {
+        if (user || googleUser) {
             navigate(from, { replace: true });
         }
-    }, [token, from, navigate])
+    }, [user, googleUser, from, navigate])
 
     // if (user || googleUser) {
     //     navigate(from, { replace: true });
