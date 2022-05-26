@@ -4,7 +4,7 @@ const OrderDeleteModal = ({ _id }) => {
 
     const handleOrderDel = (id) => {
 
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://car-parts-manufacturer.herokuapp.com/order/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -3,7 +3,7 @@ import React from 'react';
 const DeleteConfirmModal = ({ deletingPart, refetch, setDeletingPart }) => {
     const { name, _id } = deletingPart
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/part/${id}`, {
+        fetch(`https://car-parts-manufacturer.herokuapp.com/part/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

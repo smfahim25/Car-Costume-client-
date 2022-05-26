@@ -2,7 +2,7 @@ import React from 'react';
 
 const AdminProductDelete = ({ id }) => {
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://car-parts-manufacturer.herokuapp.com/order/${id}`, {
             method: 'DELETE',
         })
             .then(res => res.json())

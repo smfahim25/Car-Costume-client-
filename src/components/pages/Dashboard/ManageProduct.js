@@ -13,7 +13,7 @@ const ManageProduct = () => {
     const [deletingPart, setDeletingPart] = useState(null)
 
     const { isLoading, data: parts, refetch } = useQuery('part', () =>
-        fetch('http://localhost:5000/part').then(res =>
+        fetch('https://car-parts-manufacturer.herokuapp.com/part').then(res =>
             res.json()
         )
     )

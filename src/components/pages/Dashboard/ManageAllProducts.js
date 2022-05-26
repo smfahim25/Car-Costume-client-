@@ -4,7 +4,7 @@ import ManageProductRow from './ManageProductRow';
 const ManageAllProducts = () => {
     const [manageOrder, setManageOrder] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/manageorder')
+        fetch('https://car-parts-manufacturer.herokuapp.com/manageorder')
             .then(res => res.json())
             .then(data => setManageOrder(data))
     }, [])

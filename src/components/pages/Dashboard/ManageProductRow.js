@@ -5,7 +5,7 @@ const ManageProductRow = ({ index, manage }) => {
 
     const handleShipped = (id) => {
 
-        fetch(`http://localhost:5000/manageorder/${id}`, {
+        fetch(`https://car-parts-manufacturer.herokuapp.com/manageorder/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -22,7 +22,7 @@ const ManageProductRow = ({ index, manage }) => {
     const handleDelete = (id) => {
         const proceed = window.confirm('are you sure you want to delete??')
         if (proceed) {
-            fetch(`http://localhost:5000/order/${id}`, {
+            fetch(`https://car-parts-manufacturer.herokuapp.com/order/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())

@@ -5,11 +5,11 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import CheckoutForm from './CheckoutForm';
 
-const stripePromise = loadStripe('pk_test_51L0hc6DdE5bh3gXfgz3zoZxYxVGOMUTYwQRaoErBkVHRhp4QPU12pUXbc14Y3EEmSONx9J0uog63dVXmfVyyd8L7004J8NduaQ');
+const stripePromise = loadStripe('pk_test_51L3gQGHvhC1fubExT7AaWZtH9nTFXFLcKwpkgj5YTGEuJtiDAqmA2GgbO9d5v6WtYwIj54dWtmv3ocVNDhUtQmm400QbxjrAXn');
 
 const Payment = () => {
     const { id } = useParams()
-    const url = `http://localhost:5000/myorder/${id}`
+    const url = `https://car-parts-manufacturer.herokuapp.com/myorder/${id}`
     const { data: order, isLoading } = useQuery(['myorder', id], () => fetch(url, {
         method: 'GET',
         headers: {
