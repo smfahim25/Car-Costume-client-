@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const usePurchase = id => {
     const [purchaseItem, setPurchaseItem] = useState({})
     useEffect(() => {
-        const url = `http://localhost:5000/tools/${id}`
+        const url = `https://car-parts-manufacturer.herokuapp.com/part/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setPurchaseItem(data))

@@ -1,6 +1,5 @@
 [
     {
-        "_id": 1,
         "name": "Duralast Semi-Metallic Brake Pads MKD465A",
         "description": "Brakes squealing? Are you experiencing longer stopping distances? Get reliable, everyday performance for regular driving needs from Duralast brake pads, designed to meet your vehicles original equipment for form, fit, and function. Available only at AutoZone, Duralast brake pads use platform-specific, semi-metallic friction materials tailored to your vehicle. Replace rotors and hardware when replacing brake pads for better performance and less noise.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/epa/MKD465A/image/2/",
@@ -9,7 +8,6 @@
         "quantity": 2000
     },
     {
-        "_id": 2,
         "name": "Four Seasons A/C Compressor 158366",
         "description": "New Compressors meet or exceed OE specifications~ * New Compressors are validated for the equivalent of 100,000 miles~ * New Compressors come pre-charged with 3 ounces of PAG oil for R134a or R1234yf applications~ * New Compressors come with direct fit connectors for ease of installation and to help eliminate splicing~ * New Compressors come with the R12/R134A/1234yf required o-rings /sealing washers to install the compressor~ * New Compressors are built in a ISO9001:2015 Certified facility. These facilities go through several audits to ensure quality standards in the manufacturing process.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/f11/158366/image/2/",
@@ -18,7 +16,6 @@
         "quantity": 700
     },
     {
-        "_id": 3,
         "name": "Four Seasons A/C Compressor 58957",
         "description": " Manufactured Compressors meet or exceed OE specifications.Manufactured Compressors meet or exceed OE specifications.Manufactured Compressors come pre-charged with 3 ounces of PAG oil for R134a or R1234yf applications. Manufactured Compressors are individually vacuum,pressure, and Helium Mass Spectrometer tested to ensure no leaks. Manufactured Compressors come with the R12/R134A/1234yf required O-rings /sealing washers to install the compressor.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/f11/58957/image/2/",
@@ -27,7 +24,7 @@
         "quantity": 1400
     },
     {
-        "_id": 4,
+        
         "name": "Duralast Gold Starter DLG524A",
         "description": "Duralast Gold starters are engineered to provide the torque necessary for dependable starting in today's vehicles. Every unit is 100% NEW (not remanufactured) and made with proprietary components and processes to ensure maximum life and performance.Engineered to deliver torque output for starting power that meets or exceeds the original equipment on your vehicle",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/dur/DLG524A/image/2/",
@@ -36,7 +33,7 @@
         "quantity": 1800
     },
     {
-        "_id": 5,
+        
         "name": "XtraVision Headlight and Fog Light Bulb H7XV-2",
         "description": "The SYLVANIA XtraVision® halogen headlight delivers more downroad visibility using a brighter light bulb with no added glare. SYLVANIA achieves this with a robust filament design and propriety gas mixture that can be driven for superior performance. The SYLVANIA XtraVision® headlight has also been designed for maximum durability.Increased downroad visibility with no added glare.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/syl/H7XV-2/image/2/",
@@ -45,7 +42,7 @@
         "quantity": 3000
     },
     {
-        "_id": 6,
+        
         "name": "Bosch Double Iridium Spark Plug 9613",
         "description": "Bosch OE Fine Wire Double Iridium. All iridium plugs are NOT created equal. Give your customers the only one engineered for both high performance and long life. The ultra fine wire design and laser welded, tapered ground electrode deliver the ultimate in ignitability and high performance. The iridium-alloy center electrode firing pin and laser welded ground electrode with iridium alloy inlay help it to go the distance.Double Iridium electrodes  iridium firing pin and iridium ground electrode inlay offer higher performance and 4 times longer life compared to standard copper spark plugs.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/bos/9613/image/2/",
@@ -54,7 +51,7 @@
         "quantity": 5000
     },
     {
-        "_id": 7,
+       
         "name": "Platinum EFB Battery 35-EFB Group Size 35 585 CCA",
         "description": "Duralast Platinum EFB (Enhanced Flooded Battery) batteries are built to handle power-hungry modern vehicles while exceeding the performance of your original, conventional battery. Engineered to significantly improve charge acceptance and cycle life, Duralast Platinum EFB batteries provide strong starts and ultimate power for modern safety and entertainment features like cruise control, lane assist, infotainment systems, and heated seats. A reinforced retainer, full-frame positive grid and thicker negative grid resist corrosion and extend battery life, ensuring platinum performance year after year, even in extreme weather. In vehicles designed for conventional batteries, Duralast Platinum EFB provides reliable, premium performance backed by a 3-year, full replacement, nationwide warranty.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/exi/35-EFB/image/2/",
@@ -63,7 +60,7 @@
         "quantity": 3000
     },
     {
-        "_id": 8,
+       
         "name": "Platinum EFB Battery H8-EFB Group Size H8 850 CCA",
         "description": "Duralast Platinum EFB (Enhanced Flooded Battery) batteries are built to handle power-hungry modern vehicles while exceeding the performance of your original, conventional battery. Engineered to significantly improve charge acceptance and cycle life, Duralast Platinum EFB batteries provide strong starts and ultimate power for modern safety and entertainment features like cruise control, lane assist, infotainment systems, and heated seats. A reinforced retainer, full-frame positive grid and thicker negative grid resist corrosion and extend battery life, ensuring platinum performance year after year, even in extreme weather. In vehicles designed for conventional batteries, Duralast Platinum EFB provides reliable, premium performance backed by a 3-year, full replacement, nationwide warranty.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/exi/H8-EFB/image/2/",
@@ -72,7 +69,7 @@
         "quantity": 3500
     },
     {
-        "_id": 9,
+        
         "name": "PowerStop Performance Brake Pads Rotors Kit KC1992",
         "description": "Power Stop brake kits include a complete set of cross-drilled and slotted rotors, red powder coated brake calipers, and high performance Z23 Evolution Sport Carbon Fiber & Ceramic pads. The Power Stop brake kit offers more pad bite than other leading brands without noise and dust. Not only do the brake rotors and calipers look great behind stock or custom wheels, they perform better than stock as well! Every caliper is expertly assembled, lubricated, and pressure tested in our Chicago, IL facility. If you need a fast, easy and affordable solution for better braking and better looks, then you need the Power Stop brake kit.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/pow/KC1992/image/2/",
@@ -81,7 +78,7 @@
         "quantity": 2500
     },
     {
-        "_id": 10,
+      
         "name": "STP Air Filter SA324A",
         "description": "STP air filters are from the world&apos;s most recognized brand and leading filter specialists. Exclusive Micro-Pore advanced technology air filter media provides higher dirt holding capacity for maximum engine protection. Changing your dirty air filter can improve fuel efficiency and performance.",
         "img": "https://contentinfo.autozone.com/znetcs/product-info/en/US/chl/SA324A/image/2/",
