@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { data } from 'autoprefixer';
+// import React, { useState } from 'react';
+// import { data } from 'autoprefixer';
+import { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
@@ -14,10 +15,22 @@ const Purchase = () => {
     const [disabled, setDisabled] = useState(false)
     const { name, img, description, price, minorder, quantity } = part;
     const [user, loading] = useAuthState(auth);
-    const { register, watch, formState: { errors }, handleSubmit } = useForm();
+    const { register, reset, formState: { errors }, handleSubmit } = useForm();
     if (loading) {
         return <Loading></Loading>
     }
+    // function handleDisabled(data) {
+    //     // event.preventDefault();
+
+    //     const newQuanValue = data.productquantity;
+    //     if (newQuanValue > minorder) {
+    //         setDisabled(false);
+    //         toast.error("You have to order minimum quantity")
+    //     } else {
+    //         setDisabled(true);
+    //     }
+
+    // }
 
     const onSubmit = data => {
         const order = {
@@ -27,7 +40,7 @@ const Purchase = () => {
             customerEmail: user?.email,
             adress: data.adress,
             phone: data.phone,
-            price: part.price,
+            pricePerUnit: part.price,
             orderQuantity: data.productquantity
         }
         fetch('https://car-parts-manufacturer.herokuapp.com/part', {
@@ -41,8 +54,8 @@ const Purchase = () => {
             .then(res => res.json())
             .then(result => {
                 //console.log(result);
-                toast.success('succesfully booked the product')
-
+                toast.success('Succesfully booked the product');
+                reset();
             })
     };
 
@@ -64,21 +77,21 @@ const Purchase = () => {
                                     <form onSubmit={handleSubmit(onSubmit)} className=' flex justify-center'>
 
                                         <div>
-                                            <div class="form-control w-full max-w-xs">
-                                                <label class="label">
-                                                    <span class="label-text">Name</span>
+                                            <div className="form-control w-full max-w-xs">
+                                                <label className="label">
+                                                    <span className="label-text">Name</span>
                                                 </label>
-                                                <input value={user?.displayName} {...register("name", { required: true })} type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                                                <input value={user?.displayName} {...register("name", { required: true })} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                                             </div>
-                                            <div class="form-control w-full max-w-xs">
-                                                <label class="label">
-                                                    <span class="label-text">Email</span>
+                                            <div className="form-control w-full max-w-xs">
+                                                <label className="label">
+                                                    <span className="label-text">Email</span>
                                                 </label>
-                                                <input value={user?.email} {...register("email", { required: true })} type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+                                                <input value={user?.email} {...register("email", { required: true })} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                                             </div>
-                                            <div class="form-control w-full max-w-xs">
-                                                <label class="label">
-                                                    <span class="label-text">Adress</span>
+                                            <div className="form-control w-full max-w-xs">
+                                                <label className="label">
+                                                    <span className="label-text">Adress</span>
                                                 </label>
                                                 <input
                                                     {...register("adress", {
@@ -88,14 +101,14 @@ const Purchase = () => {
                                                         },
 
                                                     })}
-                                                    type="text" placeholder="" class="input input-bordered w-full max-w-xs" />
+                                                    type="text" placeholder="" className="input input-bordered w-full max-w-xs" />
                                                 <label className="label">
                                                     {errors.adress?.type === 'required' && <span className="text-red-500">{errors.adress.message}</span>}
                                                 </label>
                                             </div>
-                                            <div class="form-control w-full max-w-xs">
-                                                <label class="label">
-                                                    <span class="label-text">Phone</span>
+                                            <div className="form-control w-full max-w-xs">
+                                                <label className="label">
+                                                    <span className="label-text">Phone</span>
                                                 </label>
                                                 <input
                                                     {...register("phone", {
@@ -105,14 +118,14 @@ const Purchase = () => {
                                                         },
 
                                                     })}
-                                                    type="text" placeholder="" class="input input-bordered w-full max-w-xs" />
+                                                    type="text" placeholder="Type your phone number" className="input input-bordered w-full max-w-xs" />
                                                 <label className="label">
                                                     {errors.phone?.type === 'required' && <span className="text-red-500">{errors.phone.message}</span>}
                                                 </label>
                                             </div>
-                                            <div class="form-control w-full max-w-xs">
-                                                <label class="label">
-                                                    <span class="label-text">Product Quantity</span>
+                                            <div className="form-control w-full max-w-xs">
+                                                <label className="label">
+                                                    <span className="label-text">Product Quantity</span>
                                                 </label>
                                                 <input
                                                     {...register("productquantity", {
@@ -122,22 +135,27 @@ const Purchase = () => {
                                                         },
 
                                                         min: {
-                                                            value: part.minOrder,
-                                                            message: `you have to order atleast ${part.minorder}` // JS only: <p>error message</p> TS only support string
+                                                            value: minorder,
+                                                            message: `you have to order atleast ${minorder}` // JS only: <p>error message</p> TS only support string
                                                         },
                                                         max: {
-                                                            value: part.quantity,
-                                                            message: `you cant order more than ${part.quantity}` // JS only: <p>error message</p> TS only support string
+                                                            value: quantity,
+                                                            message: `you cant order more than ${quantity}` // JS only: <p>error message</p> TS only support string
                                                         }
                                                     })}
-                                                    type="positivenumber" defaultValue={part.minorder} class="input input-bordered w-full max-w-xs" />
+                                                    type="positvenumber" defaultValue={minorder} className="input input-bordered w-full max-w-xs" />
                                                 <label className="label">
                                                     {errors.productquantity?.type === 'required' && <span className="text-red-500">{errors.productquantity.message}</span>}
                                                     {errors.productquantity?.type === 'max' && <span className="text-red-500">{errors.productquantity.message}</span>}
                                                     {errors.productquantity?.type === 'min' && <span className="text-red-500">{errors.productquantity.message}</span>}
                                                 </label>
                                             </div>
-                                            {errors.productquantity?.type === 'min' || errors.productquantity?.type === 'max' ? <input onClick={setDisabled(true)} disabled={disabled} type="submit" className='btn btn-active mt-3' value='purchase' /> : <input type="submit" className='btn btn-active mt-3' value='purchase' />}
+
+
+                                            {/* <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} />
+                            <input type="number" {...register("age", { min: 18, max: 99 })} /> */}
+                                            {/* <input type="submit" className='btn btn-active mt-3' value='purchase' /> */}
+                                            {errors.productquantity?.type === 'min' || errors.productquantity?.type === 'max' ? <input disabled={true} type="submit" className='btn btn-active mt-3' value='purchase' /> : <input type="submit" className='btn btn-active mt-3' value='purchase' />}
                                         </div>
                                     </form>
                                 </div>

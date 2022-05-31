@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const CheckoutForm = ({ order }) => {
     const [cardError, setCardError] = useState('')
@@ -70,14 +71,14 @@ const CheckoutForm = ({ order }) => {
         }
         else {
             setCardError('')
-            console.log(paymentIntent);
+            // console.log(paymentIntent);
             setTransition(paymentIntent.id)
             setSuccess('Your Payment is Success')
             const payment = {
                 productId: _id,
                 transictionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/order/${_id}`, {
+            fetch(`https://car-parts-manufacturer.herokuapp.com/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -87,7 +88,8 @@ const CheckoutForm = ({ order }) => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
+                    toast.success('Payment successfully recieved');
                 })
         }
     }
@@ -110,7 +112,7 @@ const CheckoutForm = ({ order }) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-xs mt-4' type="submit" disabled={!stripe || !clientSecret}>
+                <button className='btn btn-success btn-xs mt-4 text-center' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
             </form>

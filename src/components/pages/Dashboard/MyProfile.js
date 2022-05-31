@@ -2,21 +2,21 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+// import auth from '../../firebase.init';
 
 const MyProfile = () => {
-    const [user] = useAuthState(auth);
+    const [user] = useAuthState(auth)
     const handleProfile = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         const profile = {
             name: user?.displayName,
             email: user?.email,
             education: e.target.education.value,
-            address: e.target.address.value,
-            phone: e.target.phone.value,
-            photo: e.target.photo.value,
+            location: e.target.location.value,
+            phone: e.target.number.value,
             linkedin: e.target.linkedin.value,
         }
-        fetch(`http://localhost:5000//myprofile/${user?.email}`, {
+        fetch(`https://car-parts-manufacturer.herokuapp.com/myprofile/${user?.email}`, {
 
             method: 'PUT',
             headers: {
@@ -26,101 +26,60 @@ const MyProfile = () => {
 
         })
             .then(res => res.json())
-            .then(inserted => {
-                if (inserted) {
-                    alert('Profile added successfully');
-                    window.location.reload();
-                }
-                else {
-                    toast.error('Failed to add the profile');
-                }
+            .then(data => {
+                console.log(data);
+                toast.success('Information added successfully.')
+                e.target.reset();
             })
     }
     return (
         <div>
-            <form onSubmit={handleProfile} className='mt-10 ml-16 lg:ml-80 '>
-
+            <h1 className='text-center text-xl font-bold mt-5'>MyProfile</h1>
+            <form className='lg:ml-96 ml-5' onSubmit={handleProfile}>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Name</span>
-                    </label>
-                    <input
-                        type="text"
-                        name='name'
-                        defaultValue={user?.displayName}
-                        placeholder="Your Name"
-                        className="input input-bordered w-full max-w-xs"
-                    />
-                </div>
 
+                    </label>
+                    <input defaultValue={user?.displayName} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Email</span>
+
                     </label>
-                    <input
-                        type="email"
-                        name='email'
-                        placeholder="Your Email"
-                        defaultValue={user?.email}
-                        className="input input-bordered w-full max-w-xs"
-                    />
+                    <input defaultValue={user?.email} type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
                         <span className="label-text">Education</span>
+
                     </label>
-                    <input
-                        type="text"
-                        name='education'
-                        placeholder="Education Details"
-                        className="input input-bordered w-full max-w-xs"
-                    />
+                    <input name='education' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">Phone</span>
+                        <span className="label-text">Location</span>
+
                     </label>
-                    <input
-                        type="positive number"
-                        name='phone'
-                        placeholder="Phone Number"
-                        className="input input-bordered w-full max-w-xs"
-                    />
+                    <input name='location' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">Address</span>
+                        <span className="label-text">PhoneNumber</span>
+
                     </label>
-                    <input
-                        type="text"
-                        name='address'
-                        placeholder="Type your Address"
-                        className="input input-bordered w-full max-w-xs"
-                    />
+                    <input name='number' type="number" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
                 </div>
                 <div className="form-control w-full max-w-xs">
                     <label className="label">
-                        <span className="label-text">LinkedIn Profile</span>
+                        <span className="label-text">Linkedin Link</span>
+
                     </label>
-                    <input
-                        type="text"
-                        name='linkedin'
-                        placeholder="Type your Link"
-                        className="input input-bordered w-full max-w-xs"
-                    />
+                    <input name='linkedin' type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" />
+                    <input className='btn w-full max-w-xs mt-4' type="submit" value='submit' />
                 </div>
-                <div className="form-control w-full max-w-xs">
-                    <label className="label">
-                        <span className="label-text">Your Photo</span>
-                    </label>
-                    <input
-                        type="text"
-                        placeholder='Your photo link'
-                        name='photo'
-                        className="input input-bordered w-full max-w-xs mb-4"
-                    />
-                </div>
-                <input className='btn w-full max-w-xs text-white' type="submit" value="Add" />
+
             </form>
         </div>
     );

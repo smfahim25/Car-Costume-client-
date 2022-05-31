@@ -12,7 +12,6 @@ const MyOrders = () => {
     const [orderModal, setOrderModal] = useState(null)
     const [myorder, setMyOrder] = useState([])
 
-    console.log(user);
 
     //console.log(myorder);
     useEffect(() => {
@@ -34,18 +33,17 @@ const MyOrders = () => {
                     return res.json()
                 })
                 .then(data => {
-                    console.log(data);
+                    // console.log(data);
                     setMyOrder(data)
                 })
         }
     }, [user, navigate])
 
-
     return (
         <div>
             <h1>{user?.displayName} Has:{myorder.length} Orders</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>

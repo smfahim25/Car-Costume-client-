@@ -2,8 +2,8 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <div className="hero min-h-screen" style={{
-            background: `url(${'https://cdn.shopify.com/s/files/1/0266/4166/2049/files/2_2a0778f9-da06-4926-9781-ec1b697430ae.png?v=1612511678'})`
+        <div className="hero h-96" style={{
+            background: `url(${'https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'})`
         }}>
             <div className="hero-overlay" ></div >
             <div className="hero-content text-center text-neutral-content" >

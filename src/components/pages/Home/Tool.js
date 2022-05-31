@@ -9,7 +9,7 @@ const Tool = (props) => {
         navigate(`/purchase/${id}`);
     }
     return (
-        <div className="card w-96 bg-base-100 drop-shadow-lg">
+        <div className="card w-80 bg-base-100 drop-shadow-lg">
             <figure><img src={img} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>

@@ -1,64 +1,59 @@
-// import React, { useRef } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-// import { useForm } from 'react-hook-form';
-// import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
-// import Loading from '../Shared/Loading';
+// import auth from '../../firebase.init';
 
 const AddReview = () => {
-    const [user] = useAuthState(auth);
-    // const { register, formState: { errors }, handleSubmit, reset } = useForm();
-
-    // const { data: review, isLoading } = useQuery('review', () => fetch('https://secret-dusk-46242.herokuapp.com/review').then(res => res.json()))
-
-    // const imageStorageKey='4295ac4d47b569312bea67b440cdbdbb';
-    const onSubmit = event => {
-        event.preventDefault();
+    const [user] = useAuthState(auth)
+    const handleReview = e => {
+        e.preventDefault()
         const review = {
             name: user?.displayName,
-            rating: event.target.rating.value,
-            img: event.target.img.value,
-            description: event.target.description.value
-            // specialty: data.specialty,
+            rating: e.target.ratings.value,
+            img: e.target.image.value,
+            description: e.target.review.value
         }
-        // send to your database 
         fetch('https://car-parts-manufacturer.herokuapp.com/addreview', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                'content-type': 'application/json'
             },
             body: JSON.stringify(review)
+
         })
             .then(res => res.json())
-            .then(inserted => {
-                if (inserted.insertedId) {
-                    toast.success('Review added successfully');
-                    window.location.reload();
-                }
-                else {
-                    toast.error('Failed to add the review');
-                }
+            .then(data => {
+                // console.log(data);
+                toast.success('Review added successfully.')
+                e.target.reset();
             })
-
-
-
-
     }
-    // window.location.reload()
-
-    // if (isLoading) {
-    //     return <Loading></Loading>
-    // }
     return (
-        <div className='mt-20'>
-            <form onSubmit={onSubmit} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
-                <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
-                <input type="number" name="rating" min='0' max='5' placeholder="Rating" className="input input-bordered w-full max-w-xs" />
-                <input type="text" name="img" placeholder="Image Link" className="input input-bordered w-full max-w-xs" />
-                <textarea className="textarea textarea-primary w-80" name='description' placeholder="Description" ></textarea>
-                <input type="submit" value="Add Review" className="btn btn-secondary w-full max-w-xs" />
+        <div>
+            <h1 className='text-xl text-center font-bold mt-5 mb-3'>Please Add you Valuable FeedBack</h1>
+            <form onSubmit={handleReview} className='flex justify-center'>
+                <div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Ratings:</span>
+                        </label>
+                        <input name='ratings' min='0' max='5' type="number" placeholder="Type your ratings" className="input input-bordered w-full max-w-xs" />
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Image Link:</span>
+                        </label>
+                        <input name='image' type="text" placeholder="Put Your link" className="input input-bordered w-full max-w-xs" />
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text">Description:</span>
+                        </label>
+                        <textarea name='review' type="text" placeholder="Enter Your FeedBack" className="textarea textarea-primary" />
+                    </div>
+                    <input value='add' type="submit" placeholder="Enter Your FeedBack" className="btn w-full max-w-xs my-2" />
+                </div>
             </form>
         </div>
     );

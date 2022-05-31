@@ -1,32 +1,41 @@
-import React, { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 import ManageProductRow from './ManageProductRow';
 
 const ManageAllProducts = () => {
-    const [manageOrder, setManageOrder] = useState([])
-    useEffect(() => {
-        fetch('https://car-parts-manufacturer.herokuapp.com/manageorder')
-            .then(res => res.json())
-            .then(data => setManageOrder(data))
-    }, [])
+    const { data: manageorder, isLoading, refetch } = useQuery('manageorder', () =>
+        fetch('https://car-parts-manufacturer.herokuapp.com/manageorder', {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        }).then(res =>
+            res.json()
+        )
+    )
+    if (isLoading) return <Loading></Loading>
     return (
         <div>
-            <h1>ManageAllOrders: {manageOrder.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <h1>Manage all orders: {manageorder.length}</h1>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Job</th>
+                            <th>Product Name</th>
                             <th>Payment</th>
                             <th>Status</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {manageOrder.map((manage, index) => <ManageProductRow key={manage._id}
+                        {manageorder.map((manage, index) => <ManageProductRow key={manage._id}
                             manage={manage}
                             index={index}
+                            refetch={refetch}
                         >
                         </ManageProductRow>)
 

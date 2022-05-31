@@ -18,7 +18,8 @@ import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
 import RequireAdmin from './components/pages/Login/RequireAdmin';
 import RequireAuth from './components/pages/Login/RequireAuth';
-import SignUp from './components/pages/Login/SignUp';
+import Signup from './components/pages/Login/SignUp';
+// import SignUp from './components/pages/Login/SignUp';
 import NotFound from './components/pages/NotFound/NotFound';
 import Portfolio from './components/pages/Portfolio/Portfolio';
 import Purchase from './components/pages/Purchase/Purchase';
@@ -42,16 +43,16 @@ function App() {
         <Route path="dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} >
           <Route path="addreview" element={<AddReview />}></Route>
           <Route path="myprofile" element={<MyProfile></MyProfile>}></Route>
-          <Route index path="myorders" element={<MyOrders />}></Route>
-          <Route path='payment/:id' element={<RequireAdmin><Payment></Payment></RequireAdmin>}></Route>
+          <Route index path='myorders' element={<MyOrders />}></Route>
+          <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='users' element={<RequireAdmin><Users></Users></RequireAdmin>}></Route>
           <Route path='manageallproducts' element={<RequireAdmin><ManageAllProducts></ManageAllProducts></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
-          <Route path='manageproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+          <Route path='manageproduct' element={<RequireAdmin><ManageProduct></ManageProduct></RequireAdmin>}></Route>
         </Route>
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='/login' element={<Login />}></Route>
-        <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/signup' element={<Signup></Signup>}></Route>
         <Route path='/*' element={<NotFound />}></Route>
       </Routes>
       <ToastContainer />

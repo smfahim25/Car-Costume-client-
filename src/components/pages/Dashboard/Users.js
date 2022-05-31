@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 import UserRow from './UserRow';
 
 const Users = () => {
@@ -13,19 +14,19 @@ const Users = () => {
             res.json()
         )
     )
-    if (isLoading) return 'Loading...'
+    if (isLoading) return <Loading></Loading>
     return (
         <div>
-            <h1 className='text-xl'>All users:{users?.length}</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <h1 className='text-xl'>All users:{users.length}</h1>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Remove</th>
                         </tr>
                     </thead>
                     <tbody>
