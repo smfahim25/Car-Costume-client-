@@ -20,7 +20,7 @@ const ManageProductRow = ({ index, manage, refetch }) => {
     }
     //for delete
     const handleDelete = (id) => {
-        const proceed = window.confirm('are you sure you want to delete??')
+        const proceed = window.confirm('Are you sure you want to delete??')
         if (proceed) {
             fetch(`https://car-parts-manufacturer.herokuapp.com/order/${id}`, {
                 method: 'DELETE',
