@@ -10,7 +10,7 @@ const Tools = () => {
     }, [])
     return (
         <div>
-            <h1 className='text-center text-4xl font-bold mt-10 mb-5 underline'>Tools</h1>
+            <h1 className='text-center text-4xl font-bold mt-10 mb-5 underline'>Products</h1>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:px-12 ml-6' >
                 {
                     tools.slice(1).slice(-6).map(tool => <Tool key={tool._id} tool={tool}></Tool>).reverse()
